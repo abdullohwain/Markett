@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --default-font-family: "Montserrat Variable", sans-serif;
+  --color-primary: #7000ff;
+  --color-gray: #777777;
+  --color-star: #ffd700;
+}
+
+@layer base {
+  body {
+    @apply min-h-screen;
+  }
+  #root {
+    @apply min-h-screen flex flex-col;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply cursor-pointer rounded-md px-4 py-2;
+  }
+  .btn-primary {
+    @apply text-white bg-primary hover:opacity-70 transition duration-200;
+  }
+  .btn-header {
+    @apply text-gray font-medium  bg-gray-200 transition hover:bg-gray-300;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8;
+  }
+}
