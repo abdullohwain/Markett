@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../features/productSlice";
 import toast from "react-hot-toast";
 import { CardAmountBtn } from "../../components";
-import orderedPrice from "../../utilities/orderedPrice"
+import orderedPrice from "../../utils/orderedPrice"
 
 function ProductItem({ product }) {
   const { title, rate, image, price } = product;

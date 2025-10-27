@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { request } from "../../utilities/request";
+import { request } from "../../utils/request";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 // import ProductsList from "../../components/ProductsList/ProductsList";

@@ -38,6 +38,7 @@ const productSlice = createSlice({
       });
       setItemToLocalStorage(state);
     },
+
     minusProductAmount: (state, { payload }) => {
       const activeProduct = state.productsList.find((el) => el.id === payload);
       if (activeProduct.productAmount === 1) {
@@ -54,9 +55,14 @@ const productSlice = createSlice({
       });
       setItemToLocalStorage(state);
     },
+    removeProduct: (state, {payload}) => {
+      state.productsList = state.productsList.filter((el)=> el.id != payload)
+      state.amount = state.amount-1
+      setItemToLocalStorage(state)
+    }
   },
 });
 
-export const { addProduct, plusProductAmount, minusProductAmount } =
+export const { addProduct, plusProductAmount, minusProductAmount, removeProduct} =
   productSlice.actions;
 export default productSlice.reducer;

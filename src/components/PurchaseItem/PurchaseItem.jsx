@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { removeProduct } from "../../features/productSlice";
 import { CardAmountBtn } from "../../components";
-import { useSelector } from "react-redux";
 
 function PurchaseItem({ product }) {
+  const dispatch = useDispatch();
   const { productsList } = useSelector((state) => state.product);
   const { image, title, productAmount, description, origin } = product;
+
+  const removeIteam = (e)=> {
+    e.preventDefault()
+
+    dispatch(removeProduct(product.id))
+  };
   return (
     <li>
       <Link className="flex gap-9 border border-gray-200 bg-gray-100 rounded-md pr-8" to="/product">
@@ -31,8 +39,10 @@ function PurchaseItem({ product }) {
 
         </div>
         <div className="flex flex-col justify-between items-end ml-auto py-7">
-            <button>O'chirish</button>
-            <p className="text-xl text-primary font-medium"><span className="text-xl text-gray">Narxi:</span> {product.price * product.productAmount} so'm</p>
+            <button onClick={removeIteam} type="button"
+            className="btn bg-red-300 transition hover:bg-red-400"
+              >O'chirish</button>
+            <p className="text-xl text-primary font-medium">{product.price * product.productAmount} so'm</p>
         </div>
       </Link>
     </li>
